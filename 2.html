@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Assign2.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #0037a6;}
+.s4 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Assign2.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.ethiccode.chauhan;</span>
+
+<span class="s0">import </span><span class="s1">java.util.Scanner;</span>
+
+<span class="s0">public class </span><span class="s1">Assign2 {</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">Scanner scanner = </span><span class="s0">new </span><span class="s1">Scanner(System.in);</span>
+
+        <span class="s1">System.out.print(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">Enter the number of forces: &quot;</span><span class="s1">);</span>
+        <span class="s0">int </span><span class="s1">n = scanner.nextInt();</span>
+
+        <span class="s0">double</span><span class="s1">[] weight = </span><span class="s0">new double</span><span class="s1">[n];</span>
+        <span class="s0">double</span><span class="s1">[] distance = </span><span class="s0">new double</span><span class="s1">[n];</span>
+        <span class="s0">double </span><span class="s1">beamLength, suptLeft, suptRight, totalWeight = </span><span class="s4">0</span><span class="s1">, weightedMoment = </span><span class="s4">0</span><span class="s1">;</span>
+
+        <span class="s1">System.out.print(</span><span class="s2">&quot;Enter the total length of the beam in cm: &quot;</span><span class="s1">);</span>
+        <span class="s1">beamLength = scanner.nextDouble() / </span><span class="s4">100</span><span class="s1">;</span>
+        <span class="s1">System.out.print(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; n; i++) {</span>
+            <span class="s1">System.out.print(</span><span class="s2">&quot;Enter force &quot; </span><span class="s1">+ (i + </span><span class="s4">1</span><span class="s1">) + </span><span class="s2">&quot; in Newtons: &quot;</span><span class="s1">);</span>
+            <span class="s1">weight[i] = scanner.nextDouble() * </span><span class="s4">9.806</span><span class="s1">;</span>
+        <span class="s1">}</span>
+        <span class="s1">System.out.print(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; n; i++) {</span>
+            <span class="s1">System.out.print(</span><span class="s2">&quot;Enter the distance of force &quot; </span><span class="s1">+ (i + </span><span class="s4">1</span><span class="s1">) + </span><span class="s2">&quot; from the left end in cm: &quot;</span><span class="s1">);</span>
+            <span class="s1">distance[i] = scanner.nextDouble() / </span><span class="s4">100</span><span class="s1">;</span>
+        <span class="s1">}</span>
+        <span class="s1">System.out.print(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; n; i++) {</span>
+            <span class="s1">totalWeight += weight[i];</span>
+            <span class="s1">weightedMoment += weight[i] * distance[i];</span>
+        <span class="s1">}</span>
+
+        <span class="s1">suptRight = weightedMoment / beamLength;</span>
+        <span class="s1">suptLeft = totalWeight - suptRight;</span>
+
+        <span class="s1">System.out.printf(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">The support reaction on the right end is %.3f kg</span><span class="s3">\n</span><span class="s2">&quot;</span><span class="s1">, suptRight / </span><span class="s4">10</span><span class="s1">);</span>
+        <span class="s1">System.out.printf(</span><span class="s2">&quot;The support reaction on the left end is %.3f kg</span><span class="s3">\n</span><span class="s2">&quot;</span><span class="s1">, suptLeft / </span><span class="s4">10</span><span class="s1">);</span>
+
+        <span class="s1">scanner.close();</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
